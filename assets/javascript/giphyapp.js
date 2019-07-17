@@ -6,3 +6,6 @@ for(var i = 0; i < topics.length; i++){
     flowerButton.text(topics[i]);
     $("#flowerButtons").append(flowerButton);
 }
+$(".flower").on("click", function() {
+    console.log("I've been clicked!");
+})
