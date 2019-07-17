@@ -7,5 +7,5 @@ for(var i = 0; i < topics.length; i++){
     $("#flowerButtons").append(flowerButton);
 }
 $(".flower").on("click", function() {
-    console.log("I've been clicked!");
+    console.log("You clicked " + $(this).attr("data-name"));
 })
