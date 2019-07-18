@@ -24,12 +24,15 @@ $("button").on("click", function() {
             var gifDiv = $("<div>");
             gifDiv.addClass("flower-div");
             var rating = results[i].rating;
-
+            var animatedSrc = results[i].images.fixed_height.url; // url for the animated (Default) gif
+            var staticSrc = results[i].images.fixed_height_still.url; // url for the static gif
             var p = $("<p>").text("Rating: " + rating);
 
             var flowerImage = $("<img>");
-            flowerImage.attr("src", results[i].images.fixed_height.url);
-
+            flowerImage.attr("src", staticSrc); // assigns the static flower gif url to src attribute
+            flowerImage.attr("data-state", "still"); // we want to display 10 static gifs for each type of flower
+            flowerImage.attr("data-still", staticSrc); 
+            flowerImage.attr("data-animate", animatedSrc);
             gifDiv.prepend(p);
             gifDiv.prepend(flowerImage);
 
