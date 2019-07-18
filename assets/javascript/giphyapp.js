@@ -22,7 +22,7 @@ $("button").on("click", function() {
         var results = response.data;
         for (var i = 0; i < results.length; i++) {
             var gifDiv = $("<div>");
-
+            gifDiv.addClass("flower-div");
             var rating = results[i].rating;
 
             var p = $("<p>").text("Rating: " + rating);
