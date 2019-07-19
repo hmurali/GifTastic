@@ -1,3 +1,4 @@
+// Initial array of flowers
 var topics = ["Rose", "Tulip", "Daisy", "Sunflower", "Zinnia", "Daffodil", "Carnation", "Cherry-blossom", "Dahlia", "Peony"];
 for(var i = 0; i < topics.length; i++){
     var flowerButton = $("<button>");
@@ -9,6 +10,20 @@ for(var i = 0; i < topics.length; i++){
 /* $(".flower").on("click", function() {
     console.log("You clicked " + $(this).attr("data-flower"));
 }); */
+// Function for dumping the rating and static image for each button into the div
+function displayFlowerImage() {
+
+}
+
+// Function for displaying flower data
+function renderButtons() {
+
+}
+
+// Function for playing/pausing flower gifs depending on the state of the gif.
+function pausePlayFlowerGifs() {
+    
+}
 $("button").on("click", function() {
     console.log("You clicked " + $(this).attr("data-flower"));
     var flower = $(this).attr("data-flower");
