@@ -22,7 +22,7 @@ function renderButtons() {
 
 // Function for playing/pausing flower gifs depending on the state of the gif.
 function pausePlayFlowerGifs() {
-    
+
 }
 $("button").on("click", function() {
     console.log("You clicked " + $(this).attr("data-flower"));
@@ -45,6 +45,7 @@ $("button").on("click", function() {
 
             var flowerImage = $("<img>");
             flowerImage.attr("src", staticSrc); // assigns the static flower gif url to src attribute
+            flowerImage.addClass("flowerGiphy"); // adds a class of flowerGiphy to each gif
             flowerImage.attr("data-state", "still"); // we want to display 10 static gifs for each type of flower
             flowerImage.attr("data-still", staticSrc); 
             flowerImage.attr("data-animate", animatedSrc);
@@ -54,4 +55,19 @@ $("button").on("click", function() {
             $("#flowerGifs").prepend(gifDiv);
         }
     })
+});
+
+$(".flowerGiphy").on("click", function() {
+    // The attr jQuery method allows us to get or set the value of any attribute in our HTML element
+    var state = $(this).attr("data-state");
+    // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+    // Then, set the image's data-state to animate
+    // Else set src to the data-still value
+    if(state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
 });
