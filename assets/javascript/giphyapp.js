@@ -38,8 +38,28 @@ function displayFlowerImage() {
     });
 }
 
+// This function handles events where one button is clicked
+$("#add-flower").on("click", function(event) {
+    event.preventDefault();
+
+    // This line grabs the input from the textbox
+    var flowerInput = $("#flower-input").val().trim();
+
+    // Adding the flower from the textbox to our array
+    topics.push(flowerInput);
+    console.log(topics);
+
+    // Calling renderButtons which handles the processing of our topic array
+    renderButtons();
+});
+
 // Function for displaying flower data
 function renderButtons() {
+    // Deleting the buttons prior to adding new flowers
+    // (this is necessary otherwise you will have repeat buttons)
+    $("#flowerButtons").empty();
+
+    // Looping through the array of flowers
     for(var i = 0; i < topics.length; i++){
         var flowerButton = $("<button>");
         flowerButton.addClass("flower");
